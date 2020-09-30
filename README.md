@@ -11,9 +11,9 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
 ### ANTES DE COMEÇAR A DESENVOLVER:
 
 1. Clone o repositório
-  * `git clone https://github.com:tryber/sd-0x-cookmaster.git`.
+  * `git clone https://github.com:tryber/sd-rubric-cookmaster.git`.
   * Entre na pasta do repositório que você acabou de clonar:
-    * `cd sd-0x-cookmaster`
+    * `cd sd-rubric-cookmaster`
 
 2. Instale as dependências [**Caso existam**]
   * `npm install`
@@ -43,13 +43,13 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
   * Usando o exemplo anterior: `git push -u origin joaozinho-cookmaster`
 
 6. Crie um novo `Pull Request` _(PR)_
-  * Vá até a página de _Pull Requests_ do [repositório no GitHub](https://github.com/tryber/sd-0x-cookmaster/pulls)
+  * Vá até a página de _Pull Requests_ do [repositório no GitHub](https://github.com/tryber/sd-rubric-cookmaster/pulls)
   * Clique no botão verde _"New pull request"_
   * Clique na caixa de seleção _"Compare"_ e escolha a sua branch **com atenção**
   * Clique no botão verde _"Create pull request"_
   * Adicione uma descrição para o _Pull Request_ e clique no botão verde _"Create pull request"_
   * **Não se preocupe em preencher mais nada por enquanto!**
-  * Volte até a [página de _Pull Requests_ do repositório](https://github.com/tryber/sd-0x-cookmaster/pulls) e confira que o seu _Pull Request_ está criado
+  * Volte até a [página de _Pull Requests_ do repositório](https://github.com/tryber/sd-rubric-cookmaster/pulls) e confira que o seu _Pull Request_ está criado
 
 ---
 
@@ -146,7 +146,7 @@ Isso fará com que abra o terminal do MySQL se abra. Depois, basta executar o co
 
 Assim já irá criar o banco e terá alguns dados inseridos. **É essencial seguir esses passos!**
 
-Haverá um arquivo no caminho: `sd-0x-cookmaster/cypress/plugins/index.js`. Neste arquivo, na linha 17, Haverá a seguinte comando:
+Haverá um arquivo no caminho: `sd-rubric-cookmaster/cypress/plugins/index.js`. Neste arquivo, na linha 17, Haverá a seguinte comando:
 
 `const connection = my.createConnection({host: process.env.HOSTNAME, user: process.env.MYSQL_USER, password: process.env.MYSQL_PASSWORD});`
 
@@ -154,7 +154,7 @@ Haverá um arquivo no caminho: `sd-0x-cookmaster/cypress/plugins/index.js`. Nest
 
 **Faça essas configurações também para as variáveis de ambiente usadas nesses arquivos:**
 
-`sd-0x-cookmaster/config/config.js`
+`sd-rubric-cookmaster/config/config.js`
 
 ```
 module.exports = {
@@ -184,7 +184,7 @@ module.exports = {
 
 **(Neste arquivo e obrigatório deixar o nome do database como `"database": 'cookmaster'`)**
 
-`sd-0x-cookmaster/models/connection.js`
+`sd-rubric-cookmaster/models/connection.js`
 
 ```
 const config = {
@@ -594,7 +594,7 @@ Para sinalizar que o seu projeto está pronto para o _"Code Review"_ dos seus co
 
   * No menu à direita, clique no _link_ **"Assignees"** e escolha **o seu usuário**;
 
-  * No menu à direita, clique no _link_ **"Reviewers"** e digite `students`, selecione o time `tryber/students-sd-0x`.
+  * No menu à direita, clique no _link_ **"Reviewers"** e digite `students`, selecione o time `tryber/students-sd-00`.
 
 Caso tenha alguma dúvida, [aqui tem um video explicativo](https://vimeo.com/362189205).
 
