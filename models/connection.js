@@ -1,3 +1,4 @@
+const mysqlx = require('@mysql/xdevapi');
 require('dotenv/config');
 
 const config = {
@@ -8,4 +9,9 @@ const config = {
   socketPath: '/var/run/mysqld/mysqld.sock',
 };
 
-module.exports = { config };
+const connection = () => mysqlx
+  .getSession(config)
+  .then((session) => session.getSchema('cookmaster'))
+  .catch(() => process.exit(1));
+
+module.exports = connection;
