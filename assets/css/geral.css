@@ -5,11 +5,14 @@ thead,tr,th,td,article,aside,footer,header,menu,nav,section {
   padding: 0;
 }
 
-html, body { min-height: 100vh; width: 100vw }
+html, body {
+  min-height: 100vh;
+  width: 100vw;
+}
 
 body {
-  background-color: #ededed;
-  color: #363636;
+  background-color: rgb(237, 237, 237);
+  color: rgb(54, 54, 54);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
 }
@@ -30,52 +33,58 @@ button {
 
 a:hover { opacity: .7 }
 
-button:hover { cursor: pointer; transform: scale(.9, .9) }
+button:hover {
+  cursor: pointer;
+  transform: scale(.9, .9);
+}
 
-.container { margin: 0 auto;; max-width: 1200px }
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+}
 
-.d-flex { align-items: center; display: flex }
-
+.d-flex {
+  align-items: center;
+  display: flex;
+}
 .d-flex--between { justify-content: space-between }
-
 .d-flex--center { justify-content: center }
-
 .d-flex--col { flex-direction: column }
-
 .d-flex--align-start { align-items: flex-start }
 
 .w-100 { width: 100% }
 
-.bd--primary { background-color: #00d1b2 }
+.bd--primary { background-color: rgb(0, 209, 178) }
 
-.text--primary { background-color: #363636 }
+.text--primary { background-color: rgb(54, 54, 54) }
+.text--secondary { color: rgb(181, 181, 181) }
 
-.text--secondary { color: #b5b5b5 }
-
-.link { border: none; color: white; padding: 10px 20px }
-
-.link--primary { background-color: #3273DC }
-
+.link {
+  border: none;
+  color: white;
+  padding: 10px 20px;
+}
+.link--primary { background-color: rgb(50, 115, 220) }
 .link--secondary {
-  color: #363636;
-  background-color: #dbdbdb;
+  background-color: rgb(219, 219, 219);
+  color: rgb(54, 54, 54);
 }
-
 .link--contrast {
-  color: #363636;
-  background-color: #00d1b2;
+  background-color: rgb(0, 209, 178);
+  color: rgb(54, 54, 54);
 }
-
-.link--danger { background-color: #FF3860 }
-
+.link--danger { background-color: rgb(255, 56, 96) }
 
 header {
   background-color: white;
-  box-shadow:  1px 1px 2px 1px rgba(0,0,0,.2);
+  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, .2);
   padding: 20px;
   width: 100%;
 }
 
-main { min-height: 100vh; width: 100% }
+main {
+  min-height: 100vh;
+  width: 100%;
+}
 
 .border { border: 1px solid black }
