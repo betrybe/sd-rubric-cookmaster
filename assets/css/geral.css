@@ -11,8 +11,8 @@ html, body {
 }
 
 body {
-  background-color: rgb(237 ,237 ,237);
-  color: rgb(54 ,54 ,54);
+  background-color: rgb(237, 237, 237);
+  color: rgb(54, 54, 54);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
 }
@@ -35,7 +35,7 @@ a:hover { opacity: .7; }
 
 button:hover {
   cursor: pointer;
-  transform: scale(.9 ,.9);
+  transform: scale(.9, .9);
 }
 
 .container {
@@ -48,36 +48,44 @@ button:hover {
   display: flex;
 }
 .d-flex--between { justify-content: space-between; }
+
 .d-flex--center { justify-content: center; }
+
 .d-flex--col { flex-direction: column; }
+
 .d-flex--align-start { align-items: flex-start; }
 
-.w-100 { width: 100% }
+.w-100 { width: 100%; }
 
-.bd--primary { background-color: rgb(0 ,209 ,178); }
+.bd--primary { background-color: rgb(0, 209, 178); }
 
-.text--primary { background-color: rgb(54 ,54 ,54); }
-.text--secondary { color: rgb(181 ,181 ,181); }
+.text--primary { background-color: rgb(54, 54, 54); }
+
+.text--secondary { color: rgb(181, 181, 181); }
 
 .link {
   border: none;
   color: white;
   padding: 10px 20px;
 }
-.link--primary { background-color: rgb(50 ,115 ,220) }
+
+.link--primary { background-color: rgb(50, 115, 220); }
+
 .link--secondary {
-  background-color: rgb(219 ,219 ,219);
-  color: rgb(54 ,54 ,54);
+  background-color: rgb(219, 219, 219);
+  color: rgb(54, 54, 54);
 }
+
 .link--contrast {
-  background-color: rgb(0 ,209 ,178);
-  color: rgb(54 ,54 ,54);
+  background-color: rgb(0, 209, 178);
+  color: rgb(54, 54, 54);
 }
-.link--danger { background-color: rgb(255 ,56 ,96) }
+
+.link--danger { background-color: rgb(255, 56, 96); }
 
 header {
   background-color: white;
-  box-shadow: 1px 1px 2px 1px rgba(0 ,0 ,0 ,.2);
+  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, .2);
   padding: 20px;
   width: 100%;
 }
