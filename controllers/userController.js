@@ -41,81 +41,61 @@ const login = async (req, res, next) => {
 const logout = (req, res) => {
   res.clearCookie('token');
   if (!req.cookies || !req.cookies.token) return res.redirect('/login');
-
   return res.render('admin/logout');
 };
 
 const registerForm = (req, res) => {
-
   return res.render('register', {
     message: null,
     redirect: req.query.redirect,
   });
 };
 
-const stringIsValid = str => {
+const namesIsValid = (first, last) => {
   const regeNum = /[0-9]/;
+  let msg = '';
 
-  if (str.length < 3 || regeNum.test(str)) 
-    return false
+  if (!first || first.length < 3 || regeNum.test(first)) 
+    return msg = 'O primeiro nome deve ter, no mínimo, 3 caracteres, sendo eles apenas letras' 
 
-  return true;
+  if (!last || last.length < 3 || regeNum.test(last)) 
+    return msg = 'O segundo nome deve ter, no mínimo, 3 caracteres, sendo eles apenas letras'
+  return msg;
+}
+
+const passwordIsValid = (password, confPassword) => {
+  let msg = '';
+
+  if (!password || password.length < 6) return msg = 'A senha deve ter pelo menos 6 caracteres';
+
+  if (password != confPassword) return msg = 'As senhas tem que ser iguais';
+  return msg;
+}
+
+const emailIsValid = (email) => {
+  const regEmail = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
+  let msg = '';
+
+  if (!email || !email.match(regEmail)) return msg = 'O email deve ter o formato email@mail.com';
+  return msg;
 }
 
 const register = async (req, res) => {
-  const { email, password, redirect, confPassword, name, lastName } = req.body;
-  const regeEmail = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
-
-  if (!email || !password || !confPassword || !name || !lastName) {
-    return res.render('register', {
-      message: 'Preencha os campos obrigatórios(*)',
-      redirect: null,
-    });
-  }
+  const { email, password, confPassword, name, lastName } = req.body;
+  let message = '';
   
-  if (!email.match(regeEmail)) {
-    return res.render('register', {
-      message: 'O email deve ter o formato email@mail.com',
-      redirect: null,
-    });
-  }
+  message = emailIsValid(email);
+  if (message !== '') return res.render('register', { message });
 
-  if (password.length < 6) {
-    return res.render('register', {
-      message: 'A senha deve ter pelo menos 6 caracteres',
-      redirect: null,
-    });
-  }
+  message = passwordIsValid(password, confPassword);
+  if (message !== '') return res.render('register', { message });
 
-  if (password !== confPassword) {
-    return res.render('register', {
-      message: 'As senhas tem que ser iguais',
-      redirect: null,
-    });
-  }
-
-  if (!stringIsValid(name)) {
-    return res.render('register', {
-      message: 'O primeiro nome deve ter, no mínimo, 3 caracteres, sendo eles apenas letras',
-      redirect: null,
-    });
-  }
-
-  if (!stringIsValid(lastName)) {
-    return res.render('register', {
-      message: 'O segundo nome deve ter, no mínimo, 3 caracteres, sendo eles apenas letras',
-      redirect: null,
-    });
-  }
+  message = namesIsValid(name, lastName);
+  if (message !== '') return res.render('register', { message });
 
   const user = await userModel.register(req.body);
-  if (!user) {
-    return res.render('register', {
-      message: 'Falha ao gravar no banco !',
-      redirect: null,
-    });
-  }
-
+  if (!user) return res.render('register', { message: 'Falha ao gravar no banco !' });
+  
   return res.render('register', { message: 'Cadastro efetuado com sucesso!' });
 };
 
