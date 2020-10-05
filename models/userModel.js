@@ -45,7 +45,23 @@ const findById = async (id) => {
   }
 };
 
+const register = async ({ email, password, name, lastName }) => {
+  try {
+    const db = await conn();
+    const stmt = await db
+      .getTable('users')
+      .insert(['email', 'password', 'first_name', 'last_name'])
+      .values(email, password, name, lastName)
+      .execute();
+   
+      return stmt.getAffectedRowsCount();
+  } catch (error) {
+    return false;
+  }
+};
+
 module.exports = {
   findByEmail,
   findById,
+  register,
 };

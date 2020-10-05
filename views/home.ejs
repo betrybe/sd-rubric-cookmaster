@@ -30,7 +30,7 @@
               <div class="card">
                 <h3><%= item.recipe %></h3>
                 <small class="text--secondary"><%= item.user %></small>
-                <div class="details"><a class="link link--primary" href="#">Ver mais</a></div>
+                <div class="details"><a class="link link--primary" href="/recipes/<%= item.id%>">Ver mais</a></div>
               </div>
             <% }); %>
           </div>

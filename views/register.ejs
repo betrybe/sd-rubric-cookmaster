@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cookmaster - Cadastro</title>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/geral.css">
+    <link rel="stylesheet" href="css/forms.css">
+
+  </head>
+  <body>
+    <section class="container h-100 d-flex d-flex--center d-flex--col">
+      <% if (message) {%>
+        <div class="message link--danger">
+          <%= message %>
+        </div>
+        <% } %>
+        <form action="/register" method="POST" class="d-flex d-flex--col d-flex--center">
+          <input data-testid="id" type="hidden" name="id" id="id" /><br />
+          <label for="emailInput">Email(*): </label>
+          <input data-testid="email" type="text" name="email" id="emailInput" placeholder="fulano@gmail.com" /><br />
+          <label for="passwordInput">Senha(*): </label>
+          <input data-testid="senha" type="password" name="password" id="passwordInput" placeholder="******" /><br />
+          <label for="confirPasswordInput">Confirmar Senha(*): </label>
+          <input data-testid="confirmar-senha" type="password" name="confPassword" id="confirPasswordInput" placeholder="******" /><br />
+          <label for="name">Nome(*): </label>
+          <input data-testid="nome" type="text" name="name" id="name" placeholder="Nome..." /><br />
+          <label for="lastName">Sobrenome(*): </label>
+          <input data-testid="sobrenome" type="text" name="lastName" id="lastName" placeholder="Sobrenome..." /><br />
+
+          <button data-testid="cadastrar" class="bd--primary" type="submit">Cadastar-se</button>
+
+          <a data-testid="login" href="/login">Login</a>
+        </form>
+    </section>
+  </body>
+</html>

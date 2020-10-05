@@ -13,9 +13,13 @@ app.use(express.static('assets/'));
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
-app.get('/', middlewares.auth(false), controllers.recipesController.listAll);
-
 app.get('/admin', middlewares.auth(), (req, res) => res.render('admin/home', { user: req.user }));
+
+app.get('/', middlewares.auth(false), controllers.recipesController.listAll);
+app.get('/recipes/:id', controllers.recipesController.show);
+
+app.get('/register', controllers.userController.registerForm);
+app.post('/register', controllers.userController.register);
 
 app.get('/login', controllers.userController.loginForm);
 app.get('/logout', controllers.userController.logout);
