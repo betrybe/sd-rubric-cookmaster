@@ -22,8 +22,8 @@ const findById = async (id) => {
       .execute();
 
     const row = await stmt.fetchOne();
-    const [_id, user_id, user, name, ingredients, instructions] = row;
-    return ({ id: _id, userId: user_id, user, name, ingredients, instructions });
+    const [_id, userId, user, name, ingredients, instructions] = row;
+    return ({ id: _id, userId, user, name, ingredients, instructions });
   } catch (error) {
     return false;
   }
