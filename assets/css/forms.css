@@ -12,14 +12,14 @@ input {
   height: 35px;
   margin: 5px;
   padding: 5px;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   width: 100%;
 }
 
 input:hover , input:focus {
   border: 1px solid  rgb(0 , 209 , 178);
   outline: rgb(0 , 209 , 178);
-  transform: scale(1.05 ,  1.05);
+  transform: scale(1.05 , 1.05);
 }
 
 label {
