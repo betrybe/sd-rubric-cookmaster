@@ -54,12 +54,12 @@ const namesIsValid = (first, last) => {
   const msg = '';
 
   if (!first || first.length < 3 || regeNum.test(first))
-    return 'O primeiro nome deve ter, no mínimo, 3 caracteres, sendo eles apenas letras'
+    return 'O primeiro nome deve ter, no mínimo, 3 caracteres, sendo eles apenas letras';
 
   if (!last || last.length < 3 || regeNum.test(last))
-    return 'O segundo nome deve ter, no mínimo, 3 caracteres, sendo eles apenas letras'
+    return 'O segundo nome deve ter, no mínimo, 3 caracteres, sendo eles apenas letras';
   return msg;
-}
+};
 
 const passwordIsValid = (password, confPassword) => {
   const msg = '';
@@ -68,7 +68,7 @@ const passwordIsValid = (password, confPassword) => {
 
   if (password !== confPassword) return 'As senhas tem que ser iguais';
   return msg;
-}
+};
 
 const emailIsValid = (email) => {
   const regEmail = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
@@ -76,7 +76,7 @@ const emailIsValid = (email) => {
 
   if (!email || !email.match(regEmail)) return 'O email deve ter o formato email@mail.com';
   return msg;
-}
+};
 
 const register = async (req, res) => {
   const { email, password, confPassword, name, lastName } = req.body;
