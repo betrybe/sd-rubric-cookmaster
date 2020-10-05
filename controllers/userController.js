@@ -56,7 +56,7 @@ const namesIsValid = (first, last) => {
   let msg = '';
 
   if (!first || first.length < 3 || regeNum.test(first))
-    return msg = 'O primeiro nome deve ter, no mínimo, 3 caracteres, sendo eles apenas letras' 
+    return msg = 'O primeiro nome deve ter, no mínimo, 3 caracteres, sendo eles apenas letras'
 
   if (!last || last.length < 3 || regeNum.test(last))
     return msg = 'O segundo nome deve ter, no mínimo, 3 caracteres, sendo eles apenas letras'
@@ -83,7 +83,7 @@ const emailIsValid = (email) => {
 const register = async (req, res) => {
   const { email, password, confPassword, name, lastName } = req.body;
   let message = '';
-  
+
   message = emailIsValid(email);
   if (message !== '') res.render('register', { message });
 
