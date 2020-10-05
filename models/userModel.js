@@ -29,13 +29,9 @@ const findByEmail = async (email) => {
 const findById = async (id) => {
   try {
     const db = await conn();
-    const stmt = await db
-      .getTable('users')
-      .select(['id', 'email', 'password', 'first_name', 'last_name'])
-      .where('id = :id')
-      .bind('id', id)
-      .execute();
-
+    const stmt = await db.getTable('users').select(['id', 'email', 'password', 'first_name', 'last_name'])
+    .where('id = :id').bind('id', id).execute();
+    
     const row = await stmt.fetchOne();
     const [_id, login, password, name, lastName] = row;
 
@@ -48,13 +44,9 @@ const findById = async (id) => {
 const register = async ({ email, password, name, lastName }) => {
   try {
     const db = await conn();
-    const stmt = await db
-      .getTable('users')
-      .insert(['email', 'password', 'first_name', 'last_name'])
-      .values(email, password, name, lastName)
-      .execute();
-   
-      return stmt.getAffectedRowsCount();
+    const stmt = await db.getTable('users').insert(['email', 'password', 'first_name', 'last_name'])
+    .values(email, password, name, lastName).execute();       
+    return stmt.getAffectedRowsCount();
   } catch (error) {
     return false;
   }

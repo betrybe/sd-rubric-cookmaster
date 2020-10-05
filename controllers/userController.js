@@ -55,10 +55,10 @@ const namesIsValid = (first, last) => {
   const regeNum = /[0-9]/;
   let msg = '';
 
-  if (!first || first.length < 3 || regeNum.test(first)) 
+  if (!first || first.length < 3 || regeNum.test(first))
     return msg = 'O primeiro nome deve ter, no mínimo, 3 caracteres, sendo eles apenas letras' 
 
-  if (!last || last.length < 3 || regeNum.test(last)) 
+  if (!last || last.length < 3 || regeNum.test(last))
     return msg = 'O segundo nome deve ter, no mínimo, 3 caracteres, sendo eles apenas letras'
   return msg;
 }
@@ -85,16 +85,16 @@ const register = async (req, res) => {
   let message = '';
   
   message = emailIsValid(email);
-  if (message !== '') return res.render('register', { message });
+  if (message !== '') res.render('register', { message });
 
   message = passwordIsValid(password, confPassword);
-  if (message !== '') return res.render('register', { message });
+  if (message !== '') res.render('register', { message });
 
   message = namesIsValid(name, lastName);
-  if (message !== '') return res.render('register', { message });
+  if (message !== '') res.render('register', { message });
 
   const user = await userModel.register(req.body);
-  if (!user) return res.render('register', { message: 'Falha ao gravar no banco !' });
+  if (!user) res.render('register', { message: 'Falha ao gravar no banco !' });
   
   return res.render('register', { message: 'Cadastro efetuado com sucesso!' });
 };
