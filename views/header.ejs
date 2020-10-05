@@ -1,10 +1,13 @@
 <header>
  <div class="container d-flex d-flex--between">
   <a href="/"><h1>Cookmaster</h1></a>
-  <% if(user) { %>
-    <a data-testid="logout" class="link link--danger" href="#">Logout</a>
-  <% } else { %>
-    <a data-testid="login" class="link link--primary" href="#">Login</a>
-  <% } %>
+  <div class="w-100 d-flex d-flex--end">
+    <% if(user) { %>
+      <small><%= `${user.name} ${user.lastName}` %></smaill>
+      <a data-testid="logout" class="link link--danger" href="/logout">Logout</a>
+    <% } else { %>
+      <a data-testid="login" class="link link--primary" href="/login">Login</a>
+    <% } %>
+  </div>
  </div>
 </header>

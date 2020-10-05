@@ -1,0 +1,27 @@
+form {
+  background-color: white;
+  box-shadow: 1px 1px 2px 1px rgba(0 , 0 , 0 , 0.2);
+  min-height: 400px;
+  padding: 20px 40px;
+  width: 350px;
+}
+
+input {
+  border: none;
+  box-shadow: 1px 1px 2px 1px rgba(0 , 0 , 0 , 0.2);
+  height: 35px;
+  margin: 5px;
+  padding: 5px;
+  transition: all .3s ease-in-out;
+  width: 100%;
+}
+
+input:hover , input:focus {
+  border: 1px solid  rgb(0 , 209 , 178);
+  outline: rgb(0 , 209 , 178);
+  transform: scale(1.05 ,  1.05);
+}
+
+label {
+  align-self: flex-start;
+}
