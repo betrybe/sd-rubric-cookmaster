@@ -21,17 +21,17 @@ const show = async (req, res) => {
 
 const dropForm = (req, res) => res.render('recipeDrop', { data: req.params.id, user: req.user, message: null });
 
-const drop = async(req, res) => {
+const drop = async (req, res) => {
   try {
     const user = await UserModel.findById(req.user.id);
-    if(user.password !== req.body.password)
+    if (user.password !== req.body.password) {
       return res.render('recipeDrop', { data: req.params.id, user: req.user, message: 'Senha Incorreta.' });
+    }
 
     const result = await RecipeModel.drop(req.params.id);
-    if(result) return res.redirect('/');
+    if (result) return res.redirect('/');
 
     return res.render('recipeDrop', { data: null, user: req.user, message: 'Erro ao deletar !' })
-
   } catch (error) {
     return res.render('recipeDrop', { data: null, user: req.user, message: 'Erro ao deletar !' })
   }
@@ -39,12 +39,12 @@ const drop = async(req, res) => {
 
 const registerForm = (req, res) => res.render('recipeRegister', { data: null, user: req.user, message: null });
 
-const register = async(req, res) => {
+const register = async (req, res) => {
   try {
     const { nameRecipe, ingredients, mode } = req.body;
     const result = await RecipeModel.register(req.user.id, req.user.name, nameRecipe, ingredients, mode);
 
-    if(result) return res.redirect('/');
+    if (result) return res.redirect('/');
 
     return res.render('recipeRegister', { data: null, user: req.user, message: 'Erro ao cadastar !' })
 
