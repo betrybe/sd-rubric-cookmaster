@@ -18,9 +18,15 @@ input , textarea {
 
 textarea { height: 10em; }
 
-.input--small { margin-right: 10px; width: 75%; }
+.input--small {
+  margin-right: 10px;
+  width: 75%;
+}
 
-.input--not-border { border: none; box-shadow: none; }
+.input--not-border {
+  border: none;
+  box-shadow: none;
+}
 
 .input--not-border:hover , .input--not-border:focus { border: none; }
 

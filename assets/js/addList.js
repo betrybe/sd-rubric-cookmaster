@@ -3,7 +3,7 @@ const createInput = (val) => {
   input.name = 'ingredients[]';
   input.id = val;
   input.value = val;
-  input.classList.add('input--not-border' , 'input--small');
+  input.classList.add('input--not-border', 'input--small');
   input.readOnly = true;
   return input;
 };
@@ -23,12 +23,12 @@ const createButton = (val) => {
 
 const createLi = () => {
   const li = document.createElement('LI');
-  li.classList.add('d-flex' , 'd-flex--between' , 'w-100');
+  li.classList.add('d-flex', 'd-flex--between', 'w-100');
   return li;
 };
 
 document.querySelector('a[data-testid="adicionar-ingrediente"]')
-  .addEventListener('click', event => {
+  .addEventListener('click', (event) => {
     event.preventDefault();
     const inputValue = document.getElementById('nameIngredient');
 

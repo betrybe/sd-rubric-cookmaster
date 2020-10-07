@@ -31,9 +31,9 @@ const drop = async (req, res) => {
     const result = await RecipeModel.drop(req.params.id);
     if (result) return res.redirect('/');
 
-    return res.render('recipeDrop', { data: null, user: req.user, message: 'Erro ao deletar !' })
+    return res.render('recipeDrop', { data: null, user: req.user, message: 'Erro ao deletar !' });
   } catch (error) {
-    return res.render('recipeDrop', { data: null, user: req.user, message: 'Erro ao deletar !' })
+    return res.render('recipeDrop', { data: null, user: req.user, message: 'Erro ao deletar !' });
   }
 };
 
@@ -46,10 +46,9 @@ const register = async (req, res) => {
 
     if (result) return res.redirect('/');
 
-    return res.render('recipeRegister', { data: null, user: req.user, message: 'Erro ao cadastar !' })
-
+    return res.render('recipeRegister', { data: null, user: req.user, message: 'Erro ao cadastar !' });
   } catch (error) {
-    return res.render('recipeRegister', { data: null, user: req.user, message: 'Erro ao cadastrar !' })
+    return res.render('recipeRegister', { data: null, user: req.user, message: 'Erro ao cadastrar !' });
   }
 };
 
