@@ -29,4 +29,33 @@ const findById = async (id) => {
   }
 };
 
-module.exports = { getAllRecipes, findById };
+const drop = async (id) => {
+  try {
+    const db = await conn();
+    const stmt = await db
+      .getTable('recipes')
+      .delete()
+      .where('id = :id')
+      .bind('id', id)
+      .execute();
+
+    return stmt.getAffectedRowsCount();
+  } catch (error) {
+    return false;
+  }
+};
+
+const register = async (id, userName, recipeName, ingredients, mode) => {
+  try {
+    const db = await conn();
+    const stmt = await db.getTable('recipes')
+    .insert(['user_id', 'user', 'name', 'ingredients', 'instructions'])
+    .values(id, userName, recipeName, ingredients.join(), mode)
+    .execute();
+    return stmt.getAffectedRowsCount();
+  } catch (error) {
+    return false;
+  }
+};
+
+module.exports = { getAllRecipes, findById, drop, register };

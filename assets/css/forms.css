@@ -6,7 +6,7 @@ form {
   width: 450px;
 }
 
-input {
+input , textarea {
   border: none;
   box-shadow: 1px 1px 2px 1px rgba(0 , 0 , 0 , 0.2);
   height: 35px;
@@ -16,7 +16,15 @@ input {
   width: 100%;
 }
 
-input:hover , input:focus {
+textarea { height: 10em; }
+
+.input--small { margin-right: 10px; width: 75%; }
+
+.input--not-border { border: none; box-shadow: none; }
+
+.input--not-border:hover , .input--not-border:focus { border: none; }
+
+input:hover , input:focus , textarea:hover , textarea:focus {
   border: 1px solid  rgb(0 , 209 , 178);
   outline: rgb(0 , 209 , 178);
   transform: scale(1.05 , 1.05);
@@ -24,4 +32,9 @@ input:hover , input:focus {
 
 label {
   align-self: flex-start;
+}
+
+.form--big {
+  margin: 20px auto;
+  width: 960px;
 }

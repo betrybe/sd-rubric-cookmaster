@@ -48,6 +48,8 @@ button:hover {
 
 .d-flex--align-start { align-items: flex-start; }
 
+.d-flex--align-center { align-items: center; }
+
 .w-100 { width: 100%; }
 
 .h-100 { min-height: 100vh; }

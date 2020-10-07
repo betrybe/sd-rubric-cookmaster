@@ -1,3 +1,5 @@
+li { margin: 0; padding: 0; }
+
 .cards {
   align-items: center;
   display: flex;
@@ -5,6 +7,14 @@
   justify-content: center;
   width: 100%;
 }
+
+.card--big {
+  background-color: white;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.card--big-inner { padding: 10px 0; }
 
 .card {
   background-color: white;

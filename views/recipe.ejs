@@ -3,17 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cookmaster - Home</title>
+    <title>Cookmaster - Recipe</title>
 
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/geral.css">
-    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/geral.css">
+    <link rel="stylesheet" href="/css/cards.css">
+
   </head>
   <body>
     <%- include('header'); %>
     <main>
       <section class="container d-flex d-flex--between d-flex--col d-flex--align-start">
-        <% console.log(data) %>
+        <div class="w-100 card--big d-flex d-flex--col d-flex--align-start">
+          <div class="w-100 d-flex d-flex--between ">
+            <div>
+              <h1><%= data.name %></h1>
+              <small class="text--secondary"><%=  data.user %></small>
+            </div>
+            <% if(user && user.id === data.userId) { %>
+              <div>
+                <a href="/recipes/<%= data.id %>/edit" data-testid="editar-receita" class="link link--primary">Editar Receita</a>
+                <a href="/recipes/<%= data.id %>/delete" data-testid="excluir-receita" class="link link--danger">Excluir Receita</a href="/recipes/:id/delete">
+              </div>
+            <% } %>
+          </div>
+          <div class="card--big card--big-inner">
+            <h2>Ingredientes</h2>
+            <ul>
+              <% data.ingredients.split(',').forEach(ingredient => { %>
+                <li><%= ingredient %></li>
+              <% }); %>
+            </ul>
+          </div>
+          <div class="card--big card--big-inner">
+            <h2>Mode de Preparo</h2>
+            <p><p><%= data.instructions %></p></p>
+          </div>
+        </div>
+
       </section>
     </main>
   </body>
