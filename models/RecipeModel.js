@@ -11,6 +11,22 @@ const getAllRecipes = async () => {
   }
 };
 
+const getSearchRecipes = async (filter) => {
+  try {
+    const db = await conn();
+    const stmt = await db
+      .getTable('recipes')
+      .select(['id', 'user', 'name'])
+      .where('name like :filter')
+      .bind('filter', `%${filter}%`)
+      .execute();
+    const rows = await stmt.fetchAll();
+    return rows.map(([id, user, recipe]) => ({ id, user, recipe }));
+  } catch (error) {
+    return false;
+  }
+};
+
 const findById = async (id) => {
   try {
     const db = await conn();
@@ -58,4 +74,4 @@ const register = async (id, userName, recipeName, ingredients, mode) => {
   }
 };
 
-module.exports = { getAllRecipes, findById, drop, register };
+module.exports = { getAllRecipes, findById, drop, register, getSearchRecipes };

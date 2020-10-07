@@ -53,4 +53,16 @@ const register = async (req, res) => {
   }
 };
 
-module.exports = { listAll, show, dropForm, drop, registerForm, register };
+const search = async (req, res) => {
+  const filter = req.query;
+  if(filter.q === undefined || filter.q === '') return res.render('recipeSearch', { user: req.user });
+
+  try {
+    const recipe = await RecipeModel.getSearchRecipes(filter.q);
+    return res.render('recipeSearch', { data: recipe, user: req.user });
+  } catch (error) {
+    return res.render('recipeSearch', { data: null, user: req.user });
+  }
+}
+
+module.exports = { listAll, show, dropForm, drop, registerForm, register, search };
