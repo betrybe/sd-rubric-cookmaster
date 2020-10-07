@@ -1,10 +1,10 @@
 const createInput = (val) => {
   const input = document.createElement('input');
-    input.name = 'ingredients[]';
-    input.id = val;
-    input.value = val;
-    input.classList.add('input--not-border', 'input--small');
-    input.readOnly = true;
+  input.name = 'ingredients[]';
+  input.id = val;
+  input.value = val;
+  input.classList.add('input--not-border', 'input--small');
+  input.readOnly = true;
   return input
 };
 
@@ -15,7 +15,7 @@ const createButton = (val) => {
     button.appendChild(document.createTextNode('Excluir Ingrediente'));
     button.onclick = function() {
       const inpt = document.getElementById(this.id.split('-')[1]);
-        inpt.parentElement.remove();
+      inpt.parentElement.remove();
       return false;
     };
   return button;
@@ -23,7 +23,7 @@ const createButton = (val) => {
 
 const createLi = () => {
   const li = document.createElement('LI');
-    li.classList.add('d-flex', 'd-flex--between', 'w-100');
+  li.classList.add('d-flex', 'd-flex--between', 'w-100');
   return li
 }
 
@@ -37,9 +37,9 @@ document.querySelector('a[data-testid="adicionar-ingrediente"]')
       const input = createInput(inputValue.value);
       const button = createButton(inputValue.value)
       const li = createLi();
-        li.appendChild(input);
-        li.appendChild(button)
+      li.appendChild(input);
+      li.appendChild(button)
       ul.appendChild(li);
-      //inputValue.value = '';
     }
   });
+  
