@@ -10,7 +10,7 @@ const createInput = (val) => {
 
 const createButton = (val) => {
   const button = document.createElement('button');
-  button.classList.add('link' , 'link--danger');
+  button.classList.add('link', 'link--danger');
   button.id = `btn-${val}`;
   button.appendChild(document.createTextNode('Excluir Ingrediente'));
   button.onclick = function () {

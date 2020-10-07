@@ -42,7 +42,8 @@ const registerForm = (req, res) => res.render('recipeRegister', { data: null, us
 const register = async (req, res) => {
   try {
     const { nameRecipe, ingredients, mode } = req.body;
-    const result = await RecipeModel.register(req.user.id, req.user.name, nameRecipe, ingredients, mode);
+    const result =
+    await RecipeModel.register(req.user.id, req.user.name, nameRecipe, ingredients, mode);
 
     if (result) return res.redirect('/');
 
