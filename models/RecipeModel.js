@@ -56,7 +56,7 @@ const findMeRecipes = async (id) => {
       .execute();
 
     const rows = await stmt.fetchAll();
-    return rows.map(([id, user_id, user, recipe, ingredients, instructions]) => ({ id, user, recipe }));
+    return rows.map(([_id, user_id, user, recipe ]) => ({ id: _id, user_id, user, recipe }));
   } catch (error) {
     return false;
   }
