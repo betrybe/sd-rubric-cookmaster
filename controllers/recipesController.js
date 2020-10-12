@@ -107,5 +107,5 @@ module.exports = {
   search,
   showMeRecipes,
   editForm,
-  update
+  update,
 };
