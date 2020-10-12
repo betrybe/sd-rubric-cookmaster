@@ -19,6 +19,16 @@ const show = async (req, res) => {
   }
 };
 
+const showMeRecipes = async (req, res) => {
+  try {
+    console.log(req.user.id)
+    const recipe = await RecipeModel.findMeRecipes(req.user.id);
+    return res.render('recipesMe', { data: recipe, user: req.user });
+  } catch (error) {
+    return res.render('recipesMe', { data: null, user: req.user });
+  }
+};
+
 const dropForm = (req, res) => res.render('recipeDrop', { data: req.params.id, user: req.user, message: null });
 
 const drop = async (req, res) => {
@@ -65,4 +75,4 @@ const search = async (req, res) => {
   }
 };
 
-module.exports = { listAll, show, dropForm, drop, registerForm, register, search };
+module.exports = { listAll, show, dropForm, drop, registerForm, register, search, showMeRecipes };

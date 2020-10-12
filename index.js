@@ -17,6 +17,8 @@ app.get('/admin', middlewares.auth(), (req, res) => res.render('admin/home', { u
 
 app.get('/recipes/search', middlewares.auth(false), controllers.recipesController.search);
 
+app.get('/me/recipes', middlewares.auth(), controllers.recipesController.showMeRecipes);
+
 app.get('/recipes/new', middlewares.auth(), controllers.recipesController.registerForm);
 app.post('/recipes', middlewares.auth(), controllers.recipesController.register);
 
