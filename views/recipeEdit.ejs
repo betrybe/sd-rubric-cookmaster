@@ -28,7 +28,7 @@
               <% data.ingredients.split(',').forEach(item => { %>
                 <li class="d-flex d-flex--between w-100" >
                   <input type="text" value="<%= item %>"  name="ingredients[]" class="input--not-border input--small">
-                  <button class="link link--danger" type="button" onclick="dropList(this)">Excluir Ingrediente</button>
+                  <button class="link link--danger" type="button" id="dropList">Excluir Ingrediente</button>
                 </li>
               <% }); %>
             </ul>
