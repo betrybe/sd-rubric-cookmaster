@@ -42,3 +42,7 @@ document.querySelector('a[data-testid="adicionar-ingrediente"]')
       ul.appendChild(li);
     }
   });
+
+function dropList() {
+  event.target.parentElement.remove();
+}

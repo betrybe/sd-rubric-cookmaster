@@ -62,6 +62,29 @@ const register = async (req, res) => {
   }
 };
 
+const editForm = async (req, res) => {
+  try {
+    const recipe = await RecipeModel.findById(req.params.id);
+    return res.render('recipeEdit', { data: recipe, user: req.user, message: null })
+  } catch (error) {
+    return res.render('recipeEdit', { data: null, user: req.user });
+  }
+};
+
+const update = async (req, res) => {
+  try {
+    const { nameRecipe, ingredients, mode } = req.body;
+    const result =
+    await RecipeModel.update(req.params.id, nameRecipe, ingredients.join(), mode);
+
+    if (result) return res.redirect('/');
+
+    return res.render('recipeEdit', { data: null, user: req.user });
+  } catch (error) {
+    return res.render('recipeEdit', { data: null });
+  }
+};
+
 const search = async (req, res) => {
   const filter = req.query;
   if (filter.q === undefined || filter.q === '') return res.render('recipeSearch', { user: req.user });
@@ -74,4 +97,15 @@ const search = async (req, res) => {
   }
 };
 
-module.exports = { listAll, show, dropForm, drop, registerForm, register, search, showMeRecipes };
+module.exports = {
+  listAll,
+  show,
+  dropForm,
+  drop,
+  registerForm,
+  register,
+  search,
+  showMeRecipes,
+  editForm,
+  update
+};

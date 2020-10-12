@@ -91,4 +91,23 @@ const register = async (id, userName, recipeName, ingredients, mode) => {
   }
 };
 
-module.exports = { getAllRecipes, findById, drop, register, getSearchRecipes, findMeRecipes };
+const update = async (id, nameRecipe, ingredients, mode) => {
+  try {
+    const db = await conn();
+    const stmt = 
+      await db
+      .getTable('recipes')
+      .update()
+      .set('name', nameRecipe)
+      .set('ingredients', ingredients)
+      .set('instructions', mode)
+      .where('id = :id')
+      .bind('id', id)
+      .execute()
+   return stmt.getAffectedRowsCount();
+  } catch (error) {
+    return null;
+  }
+};
+
+module.exports = { getAllRecipes, findById, drop, register, getSearchRecipes, findMeRecipes, update };

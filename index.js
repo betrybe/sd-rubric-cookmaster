@@ -20,6 +20,8 @@ app.get('/recipes/search', middlewares.auth(false), controllers.recipesControlle
 app.get('/me/recipes', middlewares.auth(), controllers.recipesController.showMeRecipes);
 
 app.get('/recipes/new', middlewares.auth(), controllers.recipesController.registerForm);
+app.get('/recipes/:id/edit', middlewares.auth(), controllers.recipesController.editForm);
+app.post('/recipes/:id', middlewares.auth(), controllers.recipesController.update);
 app.post('/recipes', middlewares.auth(), controllers.recipesController.register);
 
 app.get('/', middlewares.auth(false), controllers.recipesController.listAll);
