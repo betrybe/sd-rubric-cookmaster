@@ -94,7 +94,7 @@ const register = async (id, userName, recipeName, ingredients, mode) => {
 const update = async (id, nameRecipe, ingredients, mode) => {
   try {
     const db = await conn();
-    const stmt = 
+    const stmt =
       await db
       .getTable('recipes')
       .update()
@@ -103,11 +103,19 @@ const update = async (id, nameRecipe, ingredients, mode) => {
       .set('instructions', mode)
       .where('id = :id')
       .bind('id', id)
-      .execute()
-   return stmt.getAffectedRowsCount();
+      .execute();
+    return stmt.getAffectedRowsCount();
   } catch (error) {
     return null;
   }
 };
 
-module.exports = { getAllRecipes, findById, drop, register, getSearchRecipes, findMeRecipes, update };
+module.exports = {
+  getAllRecipes,
+  findById,
+  drop,
+  register,
+  getSearchRecipes,
+  findMeRecipes,
+  update,
+};

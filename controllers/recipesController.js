@@ -65,7 +65,7 @@ const register = async (req, res) => {
 const editForm = async (req, res) => {
   try {
     const recipe = await RecipeModel.findById(req.params.id);
-    return res.render('recipeEdit', { data: recipe, user: req.user, message: null })
+    return res.render('recipeEdit', { data: recipe, user: req.user, message: null });
   } catch (error) {
     return res.render('recipeEdit', { data: null, user: req.user });
   }
