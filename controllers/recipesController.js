@@ -21,7 +21,6 @@ const show = async (req, res) => {
 
 const showMeRecipes = async (req, res) => {
   try {
-    console.log(req.user.id)
     const recipe = await RecipeModel.findMeRecipes(req.user.id);
     return res.render('recipesMe', { data: recipe, user: req.user });
   } catch (error) {
