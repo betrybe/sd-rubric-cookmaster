@@ -43,7 +43,8 @@ document.querySelector('a[data-testid="adicionar-ingrediente"]')
     }
   });
 
-document.getElementById('dropList')
-  .addEventListener('click', (event) => {
-    event.target.parentElement.remove();
-  });
+document.querySelectorAll('button[type="button"]')
+  .forEach(btn => btn.addEventListener('click', (event) => 
+    event.target.parentElement.remove())
+  );
+  
