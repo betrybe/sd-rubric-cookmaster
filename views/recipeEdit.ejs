@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cookmaster - Recipe</title>
+
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/geral.css">
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/cards.css">
+
+  </head>
+  <body>
+    <%- include('header'); %>
+    <main>
+      <section class="container d-flex d-flex--between d-flex--col d-flex--align-start">
+        <div class="w-100 d-flex d-flex--col">
+          <form action="/recipes/<%= data.id %>" method="POST" class="form--big">
+            <h1>Editar Receita</h1>
+            <div class="card--big-inner">
+              <label for="nameRecipe">Nome da Receita</label>
+              <input data-testid="nome-receita" type="text" name="nameRecipe" id="nameRecipe" value="<%= data.name %>">
+            </div>
+
+            <h2 class="subtitle">Ingrdientes</h2>
+            <ul>
+              <% data.ingredients.split(',').forEach(item => { %>
+                <li class="d-flex d-flex--between w-100" >
+                  <input type="text" value="<%= item %>"  name="ingredients[]" class="input--not-border input--small">
+                  <button class="link link--danger" type="button">Excluir Ingrediente</button>
+                </li>
+              <% }); %>
+            </ul>
+            <div class="d-flex d-flex--between w-100 card--big-inner">
+              <input data-testid="ingredientes" type="text" id="nameIngredient", name="nameIngredient" class="input--small">
+              <a data-testid="adicionar-ingrediente" href="" class="link link--primary">Adicionar Ingrediente</a>
+            </div>
+
+            <h2 class="subtitle">Mode de Preparo</h2>
+            <div class="w-100 card--big-inner">
+              <textarea data-testid="modo-de-preparo" name="mode" id="mode" cols="30" rows="10"><%= data.instructions %></textarea>
+            </div>
+
+            <div class="card--big card--big-inner w-100 d-flex d-flex--between">
+              <a data-testid="cancelar" href="/" class="link link--danger">Cancelar</a>
+              <button data-testid="postar-receita" type="submit" class="link link--contrast">Confirmar</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+    <script src="/js/addList.js"></script>
+  </body>
+</html>

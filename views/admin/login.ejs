@@ -4,26 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cookmaster - Login</title>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/geral.css">
+    <link rel="stylesheet" href="css/forms.css">
+
   </head>
   <body>
-    <% if (message) {%>
-    <div class="message">
-      <%= message %>
-    </div>
-    <% } %>
-    <form action="/login" method="POST">
-      <label for="emailInput">Email: </label>
-      <input type="text" name="email" id="emailInput" /><br />
-      <label for="passwordInput">Senha: </label>
-      <input type="password" name="password" id="passwordInput" /><br />
-      <% if (redirect) { %>
-      <input
-        type="hidden"
-        name="redirect"
-        value="<%= decodeURIComponent(redirect) %>"
-      />
-      <% } %>
-      <button type="submit">Entrar</button>
-    </form>
+    <section class="container h-100 d-flex d-flex--center d-flex--col">
+      <% if (message) {%>
+        <div class="message link--danger">
+          <%= message %>
+        </div>
+        <% } %>
+        <form action="/login" method="POST" class="d-flex d-flex--col d-flex--center">
+          <label for="emailInput">Email: </label>
+          <input data-testid="email" type="text" name="email" id="emailInput" placeholder="fulano@gmail.com" /><br />
+          <label for="passwordInput">Senha: </label>
+          <input data-testid="senha" type="password" name="password" id="passwordInput" placeholder="******" /><br />
+          <% if (redirect) { %>
+          <input
+            type="hidden"
+            name="redirect"
+            value="<%= decodeURIComponent(redirect) %>"
+          />
+          <% } %>
+          <button data-testid="entrar" class="bd--primary" type="submit">Login</button>
+
+          <a data-testid="cadastrar" href="/register">Cadastre-se</a>
+        </form>
+    </section>
   </body>
 </html>

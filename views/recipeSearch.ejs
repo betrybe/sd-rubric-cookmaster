@@ -5,29 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cookmaster - Home</title>
 
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/geral.css">
-    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/geral.css">
+    <link rel="stylesheet" href="/css/cards.css">
   </head>
   <body>
     <%- include('header'); %>
     <main>
       <section class="container d-flex d-flex--between d-flex--col d-flex--align-start">
-        <% if(data === null) { %>
+
+        <form action="/recipes/search" method="GET" class="d-flex d-flex--between w-100 card--big">
+          <input data-testid="receita" type="text" name="q" class="input--seach" placeholder="Pesquisar...">
+          <button data-testid="buscar" type="submit">Buscar</button>
+        </form>
+
+        <% if( typeof data !== 'undefined' && data === null) { %>
           <h2>Falha ao trazer dados</h2>
         <% }else { %>
-          <div class="d-flex d-flex--between w-100">
-            <h2 class="subtitle">Receitas</h2>
-            <div>
-              <a data-testid="buscar-receita" class="link link--secondary" href="/recipes/search">Buscar Receitas</a>
-              <% if(user) { %>
-                <a data-testid="minhas-receitas" href="/me/recipes" class="link link--secondary">Minhas Receitas</a>
-                <a data-testid="nova-receita" href="/recipes/new" class="link link--contrast">Nova Receita</a>
-              <% } %>
-            </div>
-          </div>
+          <h2 class="subtitle">Receitas</h2>
           <div class="cards">
-            <% data.forEach(item => { %>
+            <% if( typeof data !== 'undefined' ) data.forEach(item => { %>
               <div class="card">
                 <h3><%= item.recipe %></h3>
                 <small class="text--secondary"><%= item.user %></small>

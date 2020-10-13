@@ -1,0 +1,46 @@
+form {
+  background-color: white;
+  box-shadow: 1px 1px 2px 1px rgba(0 , 0 , 0 , 0.2);
+  min-height: 400px;
+  padding: 20px 40px;
+  width: 450px;
+}
+
+input , textarea {
+  border: none;
+  box-shadow: 1px 1px 2px 1px rgba(0 , 0 , 0 , 0.2);
+  height: 35px;
+  margin: 5px;
+  padding: 5px;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+}
+
+textarea { height: 10em; }
+
+.input--small {
+  margin-right: 10px;
+  width: 75%;
+}
+
+.input--not-border {
+  border: none;
+  box-shadow: none;
+}
+
+.input--not-border:hover , .input--not-border:focus { border: none; }
+
+input:hover , input:focus , textarea:hover , textarea:focus {
+  border: 1px solid  rgb(0 , 209 , 178);
+  outline: rgb(0 , 209 , 178);
+  transform: scale(1.05 , 1.05);
+}
+
+label {
+  align-self: flex-start;
+}
+
+.form--big {
+  margin: 20px auto;
+  width: 960px;
+}

@@ -1,0 +1,44 @@
+li {
+  margin: 0;
+  padding: 0;
+}
+
+.cards {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.card--big {
+  background-color: white;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.card--big-inner { padding: 10px 0; }
+
+.card {
+  background-color: white;
+  box-shadow: 1px 1px 2px 1px rgba(0 , 0 , 0 , 0.2);
+  flex: 0 1 250px;
+  margin: 20px;
+  padding: 20px;
+}
+
+.details {
+  padding: 5px;
+  text-align: right;
+  width: 100%;
+}
+
+.input--seach {
+  border: none;
+  box-shadow: 1px 1px 2px 1px rgba(0 , 0 , 0 , 0.2);
+  height: 35px;
+  margin: 5px;
+  padding: 5px;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+}
